@@ -1,0 +1,47 @@
+#
+# the two node
+#
+roles:
+  build:
+    classes:
+      - openstacklib::repo
+      - openstacklib::hosts
+      - openstacklib::puppet::master
+      - edeploy
+      - dnsmasq
+      - openstacklib::firewall::edeploy
+      - openstacklib::firewall::puppet
+
+  control:
+    classes:
+      - galera
+      - mysql::bindings
+      - "nova::%{rpc_type}"
+      - openstacklib::openstack::databases
+      - openstacklib::openstack::endpoints
+      - openstacklib::repo
+      - openstacklib::hosts
+      - openstacklib::compat
+      - neutron::server
+      - keystone
+      - keystone::roles::admin
+    class_groups:
+      - network_controller
+      - glance_all
+      - cinder_controller
+      - nova_controller
+      - horizon
+      - heat_all
+      - firewall_control
+      - loadbalance_control
+      - test_file
+
+  compute:
+    class_groups:
+      - nova_compute
+      - cinder_volume
+      - ceilometer_compute
+    classes:
+      - openstacklib::repo
+      - openstacklib::hosts
+      - mysql::bindings

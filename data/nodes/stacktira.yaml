@@ -1,0 +1,31 @@
+nodes:
+  build-server:
+    vagrant_name: build-server
+    memory: 3000
+    ip_number: 100
+    puppet_type: apply
+    post_config:
+      - 'puppet plugin download --server build-server.domain.name'
+      #- 'service apache2 restart'
+      - 'service httpd restart'
+   #   - 'bash /vagrant/contrib/aptira/build.sh'
+  control1:
+    vagrant_name: control1
+    memory:       3000
+    ip_number:    10
+  control2:
+    vagrant_name: control2
+    memory:       3000
+    ip_number:    11
+  control3:
+    vagrant_name: control3
+    memory:       3000
+    ip_number:    11
+  compute1:
+    vagrant_name: compute1
+    memory:       2512
+    ip_number:    21
+  compute2:
+    vagrant_name: compute2
+    memory:       2512
+    ip_number:    21
