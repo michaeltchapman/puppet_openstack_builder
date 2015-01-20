@@ -17,3 +17,5 @@ glance::keystone::auth::password: glance_pass
 glance::keystone::auth::public_address: "%{hiera('glance-api_Address')}"
 glance::keystone::auth::admin_address: "%{hiera('glance-api_Address')}"
 glance::keystone::auth::internal_address: "%{hiera('glance-api_Address')}"
+
+glance::db::mysql::allowed_hosts: "%{hiera('allowed_hosts')}"

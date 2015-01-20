@@ -1,0 +1,1 @@
+galera::status::status_allow: "%{hiera('allowed_hosts')}"

@@ -16,3 +16,5 @@ heat::db::mysql::password: heat_pass
 heat::keystone::auth::admin_address: "%{hiera('control_public')}"
 
 heat::keystone::auth_cfn::admin_address: "%{hiera('control_public')}"
+
+heat::db::mysql::allowed_hosts: "%{hiera('allowed_hosts')}"

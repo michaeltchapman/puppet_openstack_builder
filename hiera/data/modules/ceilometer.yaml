@@ -1,0 +1,1 @@
+ceilometer::db::mysql::allowed_hosts: "%{hiera('allowed_hosts')}"
