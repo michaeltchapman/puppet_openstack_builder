@@ -143,6 +143,10 @@ if ! yum list installed facter > /dev/null 2>&1; then
     yum install -y facter
 fi
 
+# Set role fact
+mkdir -p /etc/facter/facts.d
+echo "role: $role" > /etc/facter/facts.d/role.yaml
+
 # Lock network facts to prevent bridge malarky and VIPs from doing strange things
 if ! [ -f /etc/facter/facts.d/ipaddress.yaml ]; then
     facter | grep ipaddress | sed 's/\ =>/:/' > /etc/facter/facts.d/ipaddress.yaml
@@ -159,10 +163,6 @@ fi
 if [ "${role}" = "None" ] ; then
   role=`hostname | grep -oh '^[[:alpha:]]*'`
 fi
-
-# Set role fact
-mkdir -p /etc/facter/facts.d
-echo "role: $role" > /etc/facter/facts.d/role.yaml
 
 # get provisioner
 provisioner=None
