@@ -26,3 +26,5 @@ nova::keystone::auth::internal_address: "%{hiera('nova-api_Address')}"
 
 nova::compute::enabled: true
 nova::compute::libvirt::libvirt_virt_type: qemu
+
+nova::db::mysql::allowed_hosts: "%{hiera('allowed_hosts')}"

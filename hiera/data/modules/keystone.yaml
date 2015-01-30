@@ -9,3 +9,4 @@ keystone::public_bind_host: "%{hiera('internal_address')}"
 keystone::admin_bind_host: "%{hiera('internal_address')}"
 keystone::database_connection: "mysql://keystone:key_pass@%{hiera('mysql_Address')}/keystone"
 
+keystone::db::mysql::allowed_hosts: "%{hiera('allowed_hosts')}"

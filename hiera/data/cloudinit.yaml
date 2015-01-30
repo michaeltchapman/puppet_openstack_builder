@@ -13,3 +13,5 @@ public_address: "%{ipaddress_enp0s9}"
 
 yum_base_mirror: 'http://centos.mirror.uber.com.au'
 yum_epel_mirror: 'http://fedora.mirror.uber.com.au/epel'
+
+allowed_hosts: 192.168.242.%

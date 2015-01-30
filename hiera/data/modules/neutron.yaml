@@ -45,3 +45,5 @@ neutron::keystone::auth::password: neutron_pass
 neutron::keystone::auth::public_address: "%{hiera('neutron-server_Address')}"
 neutron::keystone::auth::admin_address: "%{hiera('neutron-server_Address')}"
 neutron::keystone::auth::internal_address: "%{hiera('neutron-server_Address')}"
+
+neutron::db::mysql::allowed_hosts: "%{hiera('allowed_hosts')}"
