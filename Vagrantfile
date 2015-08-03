@@ -2,7 +2,15 @@
 # vi: set ft=ruby :
 
 #BOX = 'developervms/centos7-64'
+#BOX = 'puppetlabs/centos-7.0-64-puppet'
 BOX = 'vStone/centos-7.x-puppet.3.x'
+
+$rpmcache = <<SCRIPT
+# Configure local RPM cache
+mkdir -p /vagrant/rpmcache
+sed -i 's%cachedir=/var/cache/yum/$basearch/$releasever%cachedir=/vagrant/rpmcache%g' /etc/yum.conf
+sed -i 's/keepcache=0/keepcache=1/g' /etc/yum.conf
+SCRIPT
 
 def configure(config, memory="4096", provisioner=nil, role=nil)
   config.vm.box = BOX
@@ -15,6 +23,8 @@ def configure(config, memory="4096", provisioner=nil, role=nil)
     vconfig.customize ["modifyvm", :id, "--memory", memory]
     vconfig.cpus = 2
   end
+
+  config.vm.provision "rpmcache", type: "shell", inline: $rpmcache
 
   config.vm.provision :shell do |shell|
     shell.inline = 'cp /vagrant/hiera/data/cloudinit.yaml /tmp/cloudinit.yaml'

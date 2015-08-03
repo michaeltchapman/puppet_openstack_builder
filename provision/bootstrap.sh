@@ -16,6 +16,12 @@ desired_puppet=3.7.3
 
 date
 
+# The base image should really have ruby installed.
+# this is a last resort
+hash ruby 2>/dev/null || {
+  yum install -y -q ruby
+}
+
 while getopts "h?p:" opt; do
     case "$opt" in
     h|\?)
