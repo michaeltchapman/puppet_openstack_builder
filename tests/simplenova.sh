@@ -1,9 +1,9 @@
 . openrc
 
-curl -O http://cdn.download.cirros-cloud.net/0.3.2/cirros-0.3.2-x86_64-disk.img
+curl -O http://download.cirros-cloud.net/0.3.4/cirros-0.3.4-x86_64-disk.img
 
 # Add it to glance so that we can use it in Openstack
-glance image-create --name='cirros_image' --is-public=true --container-format=bare --disk-format=qcow2 < cirros-0.3.2-x86_64-disk.img
+glance image-create --name='cirros_image' --is-public=true --container-format=bare --disk-format=qcow2 < cirros-0.3.4-x86_64-disk.img
 
 nova keypair-add test > test.private
 chmod 0600 test.private
