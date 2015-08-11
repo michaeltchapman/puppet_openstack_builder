@@ -18,5 +18,5 @@ consul::config_defaults:
 
 consul::install_method: package
 consul::init_style: false
-consul::config_dir: '/etc/consul.d'
+consul::config_dir: '/etc/consul'
 consul::ui_package_name: consul-ui

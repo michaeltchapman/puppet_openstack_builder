@@ -36,8 +36,17 @@ if [ "$internal_iface" = "None" ] ; then
   echo "ERROR: internal_iface could not be found."
 fi
 
+# Sudo for consul watch commands
+if [ ! -f /etc/sudoers.d/consul ]; then
+cat > /etc/sudoers.d/consul<<EOF
+consul ALL = (root) NOPASSWD: /vagrant/provision/watchwrapper.sh
+EOF
+chmod 0440 /etc/sudoers.d/consul
+fi
+
+mkdir -p /etc/consul
 internal_address=`facter ipaddress_${internal_iface}`
-cat > /etc/consul.d/config.json<<EOF
+cat > /etc/consul/config.json<<EOF
 {
     "addresses": {
         "dns": "127.0.0.1",
