@@ -20,9 +20,9 @@ nova::db::mysql::password: nova_pass
 nova::db::mysql::host: '192.168.242.%'
 
 nova::keystone::auth::password: nova_pass
-nova::keystone::auth::public_address: "%{hiera('service_hash__haproxy::balanced__nova-api__Address')}"
-nova::keystone::auth::admin_address: "%{hiera('service_hash__haproxy::balanced__nova-api__Address')}"
-nova::keystone::auth::internal_address: "%{hiera('service_hash__haproxy::balanced__nova-api__Address')}"
+nova::keystone::auth::public_url: "http://%{hiera('service_hash__haproxy::balanced__nova-api__Address')}:8774/v2/%(tenant_id)s"
+nova::keystone::auth::admin_url: "http://%{hiera('service_hash__haproxy::balanced__nova-api__Address')}:8774/v2/%(tenant_id)s"
+nova::keystone::auth::internal_url: "http://%{hiera('service_hash__haproxy::balanced__nova-api__Address')}:8774/v2/%(tenant_id)s"
 
 nova::compute::enabled: true
 nova::compute::libvirt::libvirt_virt_type: qemu

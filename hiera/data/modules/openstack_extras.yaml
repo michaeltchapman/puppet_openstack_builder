@@ -8,3 +8,8 @@ openstack_extras::repo::redhat::redhat::purge_unmanaged: true
 openstack_extras::repo::redhat::redhat::package_require: true
 openstack_extras::repo::redhat::redhat::manage_epel: false
 openstack_extras::repo::redhat::redhat::manage_rdo: false
+
+openstack_extras::auth_file::password: admin_pass
+openstack_extras::auth_file::keystone_admin_token: supersecret
+openstack_extras::auth_file::auth_url: "http://%{hiera('service_hash__haproxy::balanced__keystone__Address')}:5000/v2.0/"
+openstack_extras::auth_file::path: /root/adminrc

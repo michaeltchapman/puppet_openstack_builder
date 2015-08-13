@@ -13,7 +13,7 @@ all_classes:
   - nova::db::mysql
   - neutron::db::mysql
 
-  - openstack::auth_file
+  - openstack_extras::auth_file
   - profile::application::consul
 
   - profile::messaging::rabbitmq
@@ -69,7 +69,7 @@ control_classes:
   - consul_profile::openstack::network::dhcp
   #- consul_profile::openstack::orchestration::api
   #- consul_profile::openstack::orchestration::engine
-  - openstack::auth_file
+  - openstack_extras::auth_file
 
   - consul_profile::openstack::database::sql
   - consul_profile::database::mariadb

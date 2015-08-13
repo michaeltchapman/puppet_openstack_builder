@@ -2,7 +2,7 @@ destdir: 'modules/'
 git_protocol: https
 ref: master
 stackforge:
-  author: stackforge
+  author: openstack
   vswitch:
     source: "%{git_protocol}://github.com/%{author}/puppet-vswitch"
     dest: "%{destdir}vswitch"
@@ -15,42 +15,43 @@ stackforge:
   neutron:
     source: "%{git_protocol}://github.com/%{author}/puppet-neutron"
     dest: "%{destdir}neutron"
-    ref: stable/juno
+    ref: stable/kilo
   nova:
     source: "%{git_protocol}://github.com/%{author}/puppet-nova"
     dest: "%{destdir}nova"
-    ref: stable/juno
-  openstack:
-    source: "%{git_protocol}://github.com/%{author}/puppet-openstack"
-    dest: "%{destdir}openstack"
+    ref: stable/kilo
   openstacklib:
     source: "%{git_protocol}://github.com/%{author}/puppet-openstacklib"
     dest: "%{destdir}openstacklib"
-    ref: stable/juno
+    ref: stable/kilo
   keystone:
     source: "%{git_protocol}://github.com/%{author}/puppet-keystone"
     dest: "%{destdir}keystone"
-    ref: stable/juno
+    ref: stable/kilo
   horizon:
     source: "%{git_protocol}://github.com/%{author}/puppet-horizon"
     dest: "%{destdir}horizon"
-    ref: stable/juno
+    ref: stable/kilo
   heat:
     source: "%{git_protocol}://github.com/%{author}/puppet-heat"
     dest: "%{destdir}heat"
-    ref: stable/juno
+    ref: stable/kilo
   cinder:
     source: "%{git_protocol}://github.com/%{author}/puppet-cinder"
     dest: "%{destdir}cinder"
-    ref: stable/juno
+    ref: stable/kilo
   glance:
     source: "%{git_protocol}://github.com/%{author}/puppet-glance"
     dest: "%{destdir}glance"
-    ref: stable/juno
+    ref: stable/kilo
   ceilometer:
     source: "%{git_protocol}://github.com/%{author}/puppet-ceilometer"
     dest: "%{destdir}ceilometer"
-    ref: stable/juno
+    ref: stable/kilo
+  openstack_extras:
+    source: "%{git_protocol}://github.com/%{author}/puppet-openstack_extras"
+    dest: "%{destdir}openstack_extras"
+    ref: stable/kilo
 puppetlabs:
   author: puppetlabs
   apache:
@@ -157,10 +158,6 @@ other_repos:
     source: "%{git_protocol}://github.com/%{author}/puppet-stacktira"
     dest: "%{destdir}stacktira"
     author: aptira
-  openstack_extras:
-    source: "%{git_protocol}://github.com/%{author}/puppet-openstack_extras"
-    dest: "%{destdir}openstack_extras"
-    author: michaeltchapman
   staging:
     source: "%{git_protocol}://github.com/%{author}/puppet-staging"
     dest: "%{destdir}staging"

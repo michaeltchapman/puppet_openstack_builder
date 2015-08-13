@@ -14,6 +14,6 @@ glance::db::mysql::password: glance_pass
 glance::db::mysql::host: '192.168.242.%'
 
 glance::keystone::auth::password: glance_pass
-glance::keystone::auth::public_address: "%{hiera('service_hash__haproxy::balanced__glance-api__Address')}"
-glance::keystone::auth::admin_address: "%{hiera('service_hash__haproxy::balanced__glance-api__Address')}"
-glance::keystone::auth::internal_address: "%{hiera('service_hash__haproxy::balanced__glance-api__Address')}"
+glance::keystone::auth::public_url: "http://%{hiera('service_hash__haproxy::balanced__glance-api__Address')}:9292"
+glance::keystone::auth::admin_url: "http://%{hiera('service_hash__haproxy::balanced__glance-api__Address')}:9292"
+glance::keystone::auth::internal_url: "http://%{hiera('service_hash__haproxy::balanced__glance-api__Address')}:9292"
