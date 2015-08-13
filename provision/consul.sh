@@ -39,6 +39,7 @@ fi
 # Sudo for consul watch commands
 if [ ! -f /etc/sudoers.d/consul ]; then
 cat > /etc/sudoers.d/consul<<EOF
+Defaults:consul !requiretty
 consul ALL = (root) NOPASSWD: /vagrant/provision/watchwrapper.sh
 EOF
 chmod 0440 /etc/sudoers.d/consul
